@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { SearchPokemon } from './SearchPokemon';
-const pokemonSearch = [];
+
+let allPokemon = [];
 
 export const GetPokemones = () => {
 
@@ -10,14 +11,39 @@ export const GetPokemones = () => {
 
     const urlAPI = "https://pokeapi.co/api/v2/pokemon/";
    
+    const fetchAllData = async () => {
+      console.time("Fetch a todos los Pokemones");
+      let response2 = await fetch(urlAPI);
+      let allData = await response2.json();
+
+      allData.results.map((pokeName) => {
+        allPokemon.push(pokeName.name);
+      })
+
+      while(allData.next){
+        response2 = await fetch(allData.next);
+        allData = await response2.json();
+
+        allData.results.map((pokeName) => {
+          allPokemon.push(pokeName.name);
+        })
+      }
+
+      //No sé el porqué se me repiten los datos, pero ya con esto dejo los nombres sin repetir
+      // console.log(allPokemon);
+      let uniqueName = new Set(allPokemon);
+      allPokemon = [...uniqueName];
+      // console.log(allPokemon);
+      console.timeEnd("Fetch a todos los Pokemones");
+
+    }
+
+    fetchAllData();
 
     const showData = async (url = "https://pokeapi.co/api/v2/pokemon/6") => {
       const response = await fetch(url);
-      const response2 = await fetch("https://pokeapi.co/api/v2/pokemon/");
-      const data = await response.json()
-      const data2 = await response2.json()
-      console.log(data2);
-
+      const data = await response.json();
+      
       const pokemon = {
         img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png`,
         imgJuego: data.sprites.front_default,
@@ -63,6 +89,7 @@ export const GetPokemones = () => {
         showData = {showData} 
         namePokemon={namePokemon}
         searchPokemon={searchPokemon}
+        allPokemon={allPokemon}
 
       />
         {card(pokemones)}
