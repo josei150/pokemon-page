@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import { SearchPokemon } from './SearchPokemon';
-import {CardPokemon} from './CardPokemon';
+import { SearchPokemon } from '../components/SearchPokemon';
+import {CardPokemon} from '../components/CardPokemon';
 
 let allPokemon = [];
 

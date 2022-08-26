@@ -1,11 +1,11 @@
-
 import './App.css';
-import { GetPokemones } from './components/GetPokemones';
+import { GetPokemones } from './pages/GetPokemones';
+import { LegendariesPokemons } from './pages/LegendariesPokemons';
 
 function App() {
   return (
     <div className="App">
-      <GetPokemones/>
+      <LegendariesPokemons/>
     </div>
   );
 }
