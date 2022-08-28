@@ -1,6 +1,7 @@
 import React from 'react';
 
 export const CardPokemon = (props) => {
+  
   return (
     <div>
       <span>Nombre: {props.poke.nombre}</span>

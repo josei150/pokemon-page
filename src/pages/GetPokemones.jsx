@@ -81,7 +81,7 @@ export const GetPokemones = () => {
     <React.Fragment>
     
       <SearchPokemon 
-        showData = {showData} 
+        showData = {showData}
         namePokemon={namePokemon}
         searchPokemon={searchPokemon}
         allPokemon={allPokemon}

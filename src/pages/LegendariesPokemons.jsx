@@ -1,10 +1,11 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {CardPokemon} from '../components/CardPokemon';
 
-let allPokemon = [];
+
 let allPokemonLegend = ['articuno', 'zapdos', 'moltres', 'mewtwo', 'raikou', 'entei', 'suicune', 'lugia', 'ho-oh', 'regirock', 'regice', 'registeel', 'latias', 'latios', 'kyogre', 'groudon', 'rayquaza', 'uxie', 'mesprit', 'azelf', 'dialga', 'palkia', 'heatran', 'regigigas', 'cresselia', 'cobalion', 'terrakion', 'virizion', 'reshiram', 'zekrom', 'kyurem', 'xerneas', 'yveltal', 'silvally', 'tapu-koko', 'tapu-lele', 'tapu-bulu', 'tapu-fini', 'cosmog', 'cosmoem', 'solgaleo', 'lunala', 'necrozma', 'zacian', 'zamazenta', 'eternatus', 'kubfu', 'regieleki', 'regidrago', 'glastrier', 'spectrier', 'calyrex'];
 
-export const LegendariesPokemons = (props) => {
+
+export const LegendariesPokemons = () => {
 
   // const APISpecies = "https://pokeapi.co/api/v2/pokemon-species/"
 
@@ -56,40 +57,57 @@ export const LegendariesPokemons = (props) => {
 
   const API = "https://pokeapi.co/api/v2/pokemon/";
 
+  const [pokeLegend, setPokeLegend] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+
   const fetchPokemonsLegend = async () => {
 
-    console.log("estoy vivo")
+    allPokemonLegend.map(async (nameL) => {
+      let response3 = await fetch(API + nameL);
+      let data = await response3.json();
+      //Puedo hacer un array acá para poder guardar todos los datos de los pokemons
 
-    
-    let response3 = await fetch(API + 'lugia');
-    let data = await response3.json();
+      const dataPokemon = {
+        img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png`,
+        imgJuego: data.sprites.front_default,
+        imgCvg: data.sprites.other.dream_world.front_default,
+        nombre: data.name,
+        experiencia: data.base_experience,
+        hp: data.stats[0].base_stat,
+        ataque: data.stats[1].base_stat,
+        defensa: data.stats[2].base_stat,
+        especial: data.stats[3].base_stat,
+      };
+      
+      setPokeLegend((pokeLegend) => ([...pokeLegend, dataPokemon]));
+      
+    })
 
-    const pokemon = {
-      img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png`,
-      imgJuego: data.sprites.front_default,
-      imgCvg: data.sprites.other.dream_world.front_default,
-      nombre: data.name,
-      experiencia: data.base_experience,
-      hp: data.stats[0].base_stat,
-      ataque: data.stats[1].base_stat,
-      defensa: data.stats[2].base_stat,
-      especial: data.stats[3].base_stat,
-    };
-
-    return pokemon;
-
+      
   }
 
   useEffect(() => {
     fetchPokemonsLegend();
+    
+    setIsLoading(false);
+
+    
   }, []);
 
-  
+  if (isLoading) { // ⬅️ si está cargando, mostramos un texto que lo indique
+    return (
+      <div className="App">
+        <h1>Cargando...</h1>
+      </div>
+    );
+  }
 
   return (
     <div>
-      
-      <CardPokemon poke={fetchPokemonsLegend}/>
+      {pokeLegend.map((pokemonLegenedario, index) => (
+      <CardPokemon poke={pokemonLegenedario} key={index} />
+      ))}
     </div>
     )
   }
