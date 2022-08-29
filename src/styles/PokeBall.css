@@ -1,0 +1,76 @@
+.Poke-container{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    height: 500px;
+    width: 100%;
+    background-color: lightgrey;
+
+}
+
+.Poke{
+    width: 250px;
+    /* border-radius: 50%; */
+
+}
+
+.Poke-center{
+    position: relative;
+    height: 20px;
+    border-radius: 10%;
+    top: -20px;
+    background-color: rgba(21,15,16,255);
+}
+
+.Poke-boton{
+    border-radius: 50%;
+    position: relative;
+    height: 90px;
+    width: 90px;
+    left: 80px;
+    top: -35px;
+    background-color: rgba(21,15,16,255);
+}
+
+.Poke-boton-light{
+    border-radius: 50%;
+    position: relative;
+    height: 75px;
+    width: 75px;
+    left: 7.5px;
+    top: 7.5px;
+    background-color: rgba(229,229,229,255);
+}
+
+.Poke-boton-light-in{
+    border-radius: 50%;
+    position: relative;
+    height: 55px;
+    width: 55px;
+    left: 10px;
+    top: 10px;
+    background-color: rgba(252,252,252,255);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.Poke-up{
+    background-color: rgba(229,27,27,255);
+    position: relative;
+    height: 115px;
+    border-top: 2px black solid;
+    border-radius: 50% / 100% 100% 0 0;
+    
+    
+}
+
+.Poke-down{
+    background-color: rgba(254,254,254,255);
+    height: 95px;
+    border-bottom: 2px black solid;
+    border-top-left-radius: 50% 0;
+    border-top-right-radius: 50% 0;
+    border-bottom-right-radius: 50% 100%;
+    border-bottom-left-radius: 50% 100%;
+    position: relative;
+    top: -125px
+}
