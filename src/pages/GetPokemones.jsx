@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { SearchPokemon } from '../components/SearchPokemon';
 import {CardPokemon} from '../components/CardPokemon';
+import {PokeBallOpen} from '../components/PokeBallOpen';
 
 let allPokemon = [];
 
@@ -70,7 +71,9 @@ export const GetPokemones = () => {
   //utilizo un componente local para llamar a otro. No supe elevar el estado.
   const FindedPokemon = (props) => {
     return (
-      <CardPokemon poke={props.poke}/>
+      <PokeBallOpen>
+        <CardPokemon poke={props.poke}/>
+      </PokeBallOpen>
     )
   }
 
