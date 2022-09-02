@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {CardPokemon} from '../components/CardPokemon';
+import {PokeBallOpen} from '../components/PokeBallOpen';
+import '../styles/CardPokemon.css';
 
 
 let allPokemonLegend = ['articuno', 'zapdos', 'moltres', 'mewtwo', 'raikou', 'entei', 'suicune', 'lugia', 'ho-oh', 'regirock', 'regice', 'registeel', 'latias', 'latios', 'kyogre', 'groudon', 'rayquaza', 'uxie', 'mesprit', 'azelf', 'dialga', 'palkia', 'heatran', 'regigigas', 'cresselia', 'cobalion', 'terrakion', 'virizion', 'reshiram', 'zekrom', 'kyurem', 'xerneas', 'yveltal', 'silvally', 'tapu-koko', 'tapu-lele', 'tapu-bulu', 'tapu-fini', 'cosmog', 'cosmoem', 'solgaleo', 'lunala', 'necrozma', 'zacian', 'zamazenta', 'eternatus', 'kubfu', 'regieleki', 'regidrago', 'glastrier', 'spectrier', 'calyrex'];
@@ -104,9 +106,11 @@ export const LegendariesPokemons = () => {
   }
 
   return (
-    <div>
+    <div className='Container-Legends'>
       {pokeLegend.map((pokemonLegenedario, index) => (
-      <CardPokemon poke={pokemonLegenedario} key={index} />
+        <PokeBallOpen key={index}>
+          <CardPokemon poke={pokemonLegenedario} key={index} />
+        </PokeBallOpen>
       ))}
     </div>
     )

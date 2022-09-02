@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { SearchPokemon } from '../components/SearchPokemon';
 import {CardPokemon} from '../components/CardPokemon';
 import {PokeBallOpen} from '../components/PokeBallOpen';
+import {PokeBall} from '../components/PokeBall';
 
 let allPokemon = [];
 
@@ -64,7 +65,8 @@ export const GetPokemones = () => {
   
   
   useEffect(() => {
-      showData();
+    <PokeBall/>
+    showData();
   }, []);
 
   //Esta implementación de FindedPokemon no me parece correcta porque 

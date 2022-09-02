@@ -1,0 +1,22 @@
+.Nav-container {
+  display: flex;
+  padding: 16px; 
+  background-color: #f40025;
+  border-bottom: 2px solid black;
+}
+
+.Nav-container ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: unset;
+  gap: 20px;
+  align-self: center;
+}
+
+.Logo-img {
+  width: 70px;
+  height: 70px;
+}
+.Nav-container strong {
+  color: white;
+}
