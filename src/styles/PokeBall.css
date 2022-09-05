@@ -24,6 +24,8 @@
     position: relative;
     height: 20px;
     border-radius: 10%;
+    left: -0.8px;
+    width: 250px;
     top: -330px;
     background-color: rgba(21,15,16,255);
 }
@@ -89,6 +91,9 @@
     border-bottom-right-radius: 50% 100%;
     border-bottom-left-radius: 50% 100%;
     position: relative;
+    width: 248.3px;
+    border-left: 1px solid;
+    border-right: 1px solid;
     top: 50px;
 }
 

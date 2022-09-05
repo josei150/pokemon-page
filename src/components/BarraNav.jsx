@@ -1,5 +1,7 @@
 import React from 'react';
 import '../styles/BarraNav.css';
+import { Link } from 'react-router-dom';
+
 
 export const BarraNav = () => {
   return (
@@ -7,10 +9,10 @@ export const BarraNav = () => {
       <img src={require('../assets/Logo.png')} className='Logo-img'></img>
       <ul>
         <li>
-          <strong>Buscar Pokemon</strong>
+          <Link to={"/"} className='Enlace'><strong>Buscar Pokemon</strong></Link>
         </li>
         <li>
-          <strong>Pokemons Legendarios</strong>
+          <Link to={"/legendaries"} className='Enlace'><strong>Pokemons Legendarios</strong></Link>
         </li>
       </ul>
     </div>

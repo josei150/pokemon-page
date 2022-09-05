@@ -3,6 +3,8 @@ import { SearchPokemon } from '../components/SearchPokemon';
 import {CardPokemon} from '../components/CardPokemon';
 import {PokeBallOpen} from '../components/PokeBallOpen';
 import {PokeBall} from '../components/PokeBall';
+import {BarraNav} from '../components/BarraNav';
+import {Footer} from '../components/Footer';
 
 let allPokemon = [];
 
@@ -84,7 +86,7 @@ export const GetPokemones = () => {
 
   return (
     <React.Fragment>
-    
+      <BarraNav/>
       <SearchPokemon 
         showData = {showData}
         namePokemon={namePokemon}
@@ -95,6 +97,7 @@ export const GetPokemones = () => {
       <FindedPokemon 
         poke={pokemones}
       />
+      <Footer/>
     </React.Fragment>
 
     

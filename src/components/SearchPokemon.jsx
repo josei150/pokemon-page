@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import '../styles/SearchPokemon.css';
 
 
 export const SearchPokemon = (props) => {
@@ -9,9 +10,9 @@ export const SearchPokemon = (props) => {
 
 
   return (
-    <div>
-      <form onSubmit={handleForm}>
-        <label>Encuentra tu pokemon</label>
+    <div className='Search-container'>
+      <form onSubmit={handleForm} className='Search-form'>
+        <label><strong>Encuentra tu pokemon</strong></label>
         <div>
           <input list='allPokemones'
             value={props.namePokemon} 
@@ -22,13 +23,11 @@ export const SearchPokemon = (props) => {
               <option value={listPoke} key={item}></option>
             ))}
           </datalist>
-          <img src={props.pokemones.imgJuego}/>
+          
         </div>
-
+        
       </form>
-
-      
-
+      <img src={props.pokemones.imgJuego}/>
     </div>
 
   )
