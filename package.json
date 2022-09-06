@@ -18,7 +18,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -b master -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -42,5 +42,5 @@
     "gh-pages": "^4.0.0",
     "react-scripts": "^5.0.1"
   },
-  "homepage": "https://josei150.github.io/pokemon-page"
+  "homepage": "https://josei150.github.io/pokemon/"
 }
